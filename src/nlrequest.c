@@ -56,7 +56,7 @@ int netlink_request(int s, struct nlmsghdr *n, int (*callback) (struct nlmsghdr 
             int ret;
             
             if (!NLMSG_OK(p, bytes) || bytes < sizeof(struct nlmsghdr) || bytes < p->nlmsg_len) {
-                fprintf(stderr, "NETLINK: Packet too small or truncated! %u!=%u!=%u\n", bytes, sizeof(struct nlmsghdr), p->nlmsg_len);
+                fprintf(stderr, "NETLINK: Packet too small or truncated! %u!=%lu!=%u\n", bytes, sizeof(struct nlmsghdr), p->nlmsg_len);
                 return -1;
             }
 
